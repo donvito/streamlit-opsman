@@ -5,7 +5,7 @@ from components import sidebar, main_content
 def main():
     st.set_page_config(layout="wide", page_title="Operations Process Tracker")
     
-    st.title("OpsMan")
+    st.title("OpsMan Demo")
 
     # Initialize session state for step statuses and notes if not already present
     if 'step_status' not in st.session_state:
