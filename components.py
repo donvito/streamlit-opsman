@@ -3,8 +3,8 @@ import streamlit as st
 def sidebar(steps):
     st.sidebar.header("Process Overview")
     for step in steps:
-        with st.sidebar.expander(f"{step['id']} {step['name']}"):
-            status = "✅" if st.session_state.step_status[step['id']] else "❌"
+        status = '✅ Completed' if st.session_state.step_status[step['id']] else '❌ Pending'
+        with st.sidebar.expander(f"{step['id']} {step['name']} {' ' * 3} {status.split()[0]}"):
             st.write(f"Status: {status}")
             st.write(f"Notes: {st.session_state.step_notes[step['id']]}")
 

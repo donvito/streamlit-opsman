@@ -14,7 +14,7 @@ def main():
         st.session_state.step_notes = {step['id']: "" for step in PROCESS_STEPS}
 
     # Create two columns: main content and sidebar
-    col1, col2 = st.columns([3, 1])
+    col1, col2 = st.columns([8, 1])
 
     with col1:
         main_content(PROCESS_STEPS)
