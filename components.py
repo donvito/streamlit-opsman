@@ -21,7 +21,11 @@ def sidebar(steps):
 
 def main_content(steps):
     for step in steps:
+        is_completed = all(st.session_state.step_status.get(sub_step['id'], False) for sub_step in step['sub_steps']) if step['type'] == 'main' else st.session_state.step_status.get(step['id'], False)
+        expander_color = "green" if is_completed else "default"
         with st.expander(f"{step['id']} {step['name']}", expanded=True):
+            if expander_color == "green":
+                st.markdown(f'<p style="background-color: #90EE90; padding: 10px; border-radius: 5px;">{step["id"]} {step["name"]}</p>', unsafe_allow_html=True)
             if step['type'] == 'main':
                 for sub_step in step['sub_steps']:
                     col1, col2 = st.columns([1, 3])
